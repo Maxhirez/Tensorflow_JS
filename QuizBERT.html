@@ -31,18 +31,18 @@ var passage = "Romania is a country located at the crossroads of Central, Easter
 var RomaniaQuestions = ["What was Romania's official name from 1965-1989?","Where were the oldest known remains of Homo Sapiens in Europe found?","What Latin word gave us the modern word Romania?", "What sea borders Romania?","What is the capital of Romania?", "What is the largest city in Romania?"];
 var countDown, question;
 
-function fillRomania(){
+function fillRomania(){//fills in div with passage text for reader, calls first question
 	document.getElementById("Romania").innerHTML=passage;
 	countDown = RomaniaQuestions.length;
 	fillQuestion();
 }
-function fillQuestion(){
+function fillQuestion(){//iterates through questions in array, setting qna variable and filling in question div for reader
 	question=RomaniaQuestions[countDown-1];
 	document.getElementById("quizQuestion").innerHTML=question;
 }
   // Notice there is no 'import' statement. 'qna' and 'tf' is
   // available on the index-page because of the script tag above.
-function checkAnswer(){
+function checkAnswer(){//checks reader's answer to questions against BERT model results
 	document.getElementById("loader").style.visibility="visible";
 	document.getElementById("answers").innerHTML="";	
 	var learnerAnswer = document.getElementById("learnerAnswer").value;
