@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<style>
+html{
+	font-family: Arial, sans-serif;
+}
+#loader {
+  border: 16px solid #f3f3f3;/* Light grey */
+  border-top: 16px solid #f00;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  visibility: hidden;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<!-- Make sure your page supports utf-8 characterset. -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Load TensorFlow.js. This is required to use the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+<!-- Load the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
+<title>QuizBERT Demo</title>
+<!-- Place your code in the script tag below. You can also use an external .js file -->
+<script>
+var passage = "Romania is a country located at the crossroads of Central, Eastern, and Southeastern Europe. It shares land borders with Bulgaria to the south, Ukraine to the north, Hungary to the west, Serbia to the southwest, and Moldova to the east and has its opening to the Black Sea.[9] It has a predominantly temperate-continental climate. With a total area of 238,397 square kilometres (92,046 square miles), Romania is the twelfth-largest country in Europe and the seventh-most populous member state of the European Union, having approximately 20 million inhabitants. Its capital and largest city is Bucharest. Other major urban areas include: Cluj-Napoca, Timișoara, Iași, Constanța, Craiova, Brașov, and Galați.</br>The River Danube, Europe's second-longest river, rises in Germany's Black Forest and flows in a generally southeasterly direction for 2,857 km (1,775 mi), coursing through ten countries before emptying into Romania's Danube Delta. The Carpathian Mountains, which cross Romania from the north to the southwest, include Moldoveanu Peak, at an altitude of 2,544 m (8,346 ft).</br>Modern Romania was formed in 1859 through a personal union of the Danubian Principalities of Moldavia and Wallachia. The new state, officially named Romania since 1866, gained independence from the Ottoman Empire in 1877. Following World War I, after declaring its neutrality in 1914, Romania fought on the side of the Allied Powers beginning in 1916. Afterwards Bukovina, Bessarabia, Transylvania as well as parts of Banat, Crișana, and Maramureș became part of the sovereign Kingdom of Romania. In June–August 1940, as a consequence of the Molotov–Ribbentrop Pact and Second Vienna Award, Romania was compelled to cede Bessarabia and Northern Bukovina to the Soviet Union, and Northern Transylvania to Hungary. In November 1940, Romania signed the Tripartite Pact and, consequently, in June 1941 entered World War II on the Axis side, fighting against the Soviet Union until August 1944, when it joined the Allies and recovered Northern Transylvania. Following the war, under the occupation of the Red Army's forces, Romania became a socialist republic and a member of the Warsaw Pact. After the 1989 Revolution, Romania began a transition towards democracy and a market economy.</br>Romania ranks 52nd in the Human Development Index, and is a developing country with a high-income economy. It has the world's 62nd largest economy by nominal GDP, with an annual economic growth rate of 3.5% as of 2020. Following rapid economic growth in the early 2000s, Romania has an economy based predominantly on services and is a producer and net exporter of machines and electric energy, featuring companies like Automobile Dacia and OMV Petrom. It has been a member of the United Nations since 1955, part of NATO since 2004, and part of the European Union since 2007. An overwhelming majority of the population identifies as ethnic Romanian and Eastern Orthodox Christian and are native speakers of Romanian, a Romance language.</br>Etymology</br>Main article: Name of Romania</br>Romania derives from the Latin romanus, meaning &#34;citizen of Rome&#34;.[18] The first known use of the appellation was attested to in the 16th century by Italian humanists travelling in Transylvania, Moldavia, and Wallachia.</br>The oldest known surviving document written in Romanian, a 1521 letter known as the &#34;Letter of Neacșu from Câmpulung&#34;,[23] is notable for including the first documented occurrence of the country's name: Wallachia is mentioned as Țeara Rumânească (old spelling for &#34;The Romanian Land&#34;; țeara from the Latin terra, &#34;land&#34;; current spelling: Țara Românească).</br>Two spelling forms: român and rumân were used interchangeably[a] until sociolinguistic developments in the late 17th century led to semantic differentiation of the two forms: rumân came to mean &#34;bondsman&#34;, while român retained the original ethnolinguistic meaning.[24] After the abolition of serfdom in 1746, the word rumân gradually fell out of use and the spelling stabilised to the form român.[b] Tudor Vladimirescu, a revolutionary leader of the early 19th century, used the term Rumânia to refer exclusively to the principality of Wallachia.&#34;</br>The use of the name Romania to refer to the common homeland of all Romanians—its modern-day meaning—was first documented in the early 19th century.</br>In English, the name of the country was formerly spelt Rumania or Roumania.[27] Romania became the predominant spelling around 1975. Romania is also the official English-language spelling used by the Romanian government.[29] A handful of other languages (including Italian, Hungarian, Portuguese, and Norwegian) have also switched to &#34;o&#34; like English, but most languages continue to prefer forms with u, e.g. French Roumanie, German and Swedish Rumänien, Spanish Rumania (the archaic form Rumanía is still in use in Spain), Polish Rumunia, Russian Румыния (Rumyniya), and Japanese ルーマニア (Rūmania).</br>Official names</br>1859–1862: United Principalities of Moldavia and Wallachia</br>1862–1866: United Principalities or Romania</br>1866–1881: Romania or Principality of Romania1881–1947: Kingdom of Romania or Romania</br>1947–1965: Romanian People's Republic (RPR) or Romania</br>1965–December, 1989: Socialist Republic of Romania (RSR) or Romania</br>December, 1989–present: Romania</br>History</br>Main article: History of Romania</br>Prehistory</br>Human remains found in Peștera cu Oase (&#34;Cave with Bones&#34;), radiocarbon dated as being from circa 40,000 years ago, represent the oldest known Homo sapiens in Europe. Neolithic techniques and agriculture spread after the arrival of a mixed group of people from Thessaly in the 6th millennium BC.xcavations near a salt spring at Lunca yielded the earliest evidence for salt exploitation in Europe; here salt production began between 5th millennium BC and 4th BC. The first permanent settlements also appeared in the Neolithic.Some of them developed into &#34;proto-cities&#34;,[34] which were larger than 320 hectares (800 acres).[35][36] The Cucuteni–Trypillia culture—the best known archaeological culture of Old Europe—flourished in Muntenia, southeastern Transylvania and northeastern Moldavia in the 3rd millennium BC.[36] The first fortified settlements appeared around 1800 BC, showing the militant character of Bronze Age societies.</br>Antiquity</br>Greek colonies established on the Black Sea coast in the 7th century BC became important centres of commerce with the local tribes. Among the native peoples, Herodotus listed the Getae of the Lower Danube region, the Agathyrsi of Transylvania and the Syginnae of the plains along the river Tisza at the beginning of the 5th century BC. Centuries later, Strabo associated the Getae with the Dacians who dominated the lands along the southern Carpathian Mountains in the 1st century BC. Burebista was the first Dacian ruler to unite the local tribes. He also conquered the Greek colonies in Dobruja and the neighbouring peoples as far as the Middle Danube and the Balkan Mountains between around 55 and 44 BC. After Burebista was murdered in 44 BC, his empire collapsed.</br>The Romans reached Dacia during Burebista's reign and conquered Dobruja in 46 AD. Dacia was again united under Decebalus around 85 AD. He resisted the Romans for decades, but the Roman army defeated his troops in 106 AD. Emperor Trajan transformed Banat, Oltenia and the greater part of Transylvania into the new Roman province of Dacia, but Dacian, Germanic and Sarmatian tribes continued to dominate the lands along the Roman frontiers.  The Romans pursued an organised colonisation policy, and the provincials enjoyed a long period of peace and prosperity in the 2nd century. Scholars accepting the Daco-Roman continuity theory—one of the main theories about the origin of the Romanians—say that the cohabitation of the native Dacians and the Roman colonists in Roman Dacia was the first phase of the Romanians' ethnogenesis.</br>The Carpians, Goths and other neighbouring tribes made regular raids against Dacia from the 210s.  The Romans could not resist, and Emperor Aurelian ordered the evacuation of the province Dacia Trajana in 271. Scholars supporting the continuity theory are convinced that most Latin-speaking commoners stayed behind when the army and civil administration was withdrawn. The Romans did not abandon their fortresses along the northern banks of the Lower Danube for decades, and Dobruja (known as Scythia Minor) remained an integral part of the Roman Empire until the early 7th century."
+var RomaniaQuestions = ["What was Romania's official name from 1965-1989?","Where were the oldest known remains of Homo Sapiens in Europe found?","What Latin word gave us the modern word Romania?", "What sea borders Romania?","What is the capital of Romania?", "What is the largest city in Romania?"];
+var countDown, question;
+
+function fillRomania(){
+	document.getElementById("Romania").innerHTML=passage;
+	countDown = RomaniaQuestions.length;
+	fillQuestion();
+}
+function fillQuestion(){
+	question=RomaniaQuestions[countDown-1];
+	document.getElementById("quizQuestion").innerHTML=question;
+}
+  // Notice there is no 'import' statement. 'qna' and 'tf' is
+  // available on the index-page because of the script tag above.
+function checkAnswer(){
+	document.getElementById("loader").style.visibility="visible";
+	document.getElementById("answers").innerHTML="";	
+	var learnerAnswer = document.getElementById("learnerAnswer").value;
+	// var answerArray=[];
+	var answerString="";
+	  // Load the model.
+	  qna.load().then(model => {
+	    // Find the answers
+	    model.findAnswers(question, passage).then(answers => {
+	      for (let answer of answers){
+	      	answerString+=answer.text+" score: "+answer.score.toString()+"</br>";
+	      	// var answerIteration = [answer.text, answer.score];
+	      	// answerArray.push(answerIteration);
+	      	if(answer.text.indexOf(learnerAnswer)) alert("Hit")
+	      }
+
+	      if (answerString=="")answerString="No guesses."
+ 	      document.getElementById("loader").style.visibility="hidden";
+	      document.getElementById("answers").innerHTML=answerString;
+	      console.log('Answers: ', answers);
+	    });
+	  });
+	}
+</script>
+<body onload="fillRomania()">
+	<h1>Romania</h1>
+	<h3>Plain-text quiz evaluator.</h3>
+	<div id="Romania"></div><hr/>
+	Question:</br>
+	<div id="quizQuestion"></div>
+	Type your answer:</br>
+	<textarea id="learnerAnswer" cols="80"></textarea></br>
+	<button type="button" onclick="checkAnswer()">Submit your answer</button></br>
+	Answers:
+	<div id="answers"></div>
+	<div id="loader"></div>
+</body>
