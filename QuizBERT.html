@@ -46,6 +46,7 @@ function checkAnswer(){//checks reader's answer to questions against BERT model 
 	document.getElementById("loader").style.visibility="visible";
 	document.getElementById("answers").innerHTML="";	
 	var learnerAnswer = document.getElementById("learnerAnswer").value;
+	var hitCounter = 0;
 	// var answerArray=[];
 	var answerString="";
 	  // Load the model.
@@ -56,9 +57,12 @@ function checkAnswer(){//checks reader's answer to questions against BERT model 
 	      	answerString+=answer.text+" score: "+answer.score.toString()+"</br>";
 	      	// var answerIteration = [answer.text, answer.score];
 	      	// answerArray.push(answerIteration);
-	      	if(answer.text.indexOf(learnerAnswer)) alert("Hit")
+	      	if(answer.text.indexOf(learnerAnswer)) {
+	      	//need to count if more than two of answer text, or more than answer.text.length-1?
+	      		hitCounter++
+	      	}
 	      }
-
+	      if(hitCounter>=(answer.text.length-1))alert ("Hit")
 	      if (answerString=="")answerString="No guesses."
  	      document.getElementById("loader").style.visibility="hidden";
 	      document.getElementById("answers").innerHTML=answerString;
